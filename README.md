@@ -15,6 +15,7 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
             case GeocodeResponse(results, ResponseStatus.Ok) =>
                 results.foreach(r => println(r.formatted_address))
             case GeocodeResponse(_, error) => println(error)
+      }
 
 //      4B Deans Yd, Westminster, London, Greater London SW1P 3NP, UK
 //      Westminster Abbey (Stop W), Westminster, City of Westminster, London SW1P, UK
