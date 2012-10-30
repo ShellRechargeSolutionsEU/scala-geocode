@@ -15,7 +15,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <name>Geocode Scala</name>
-    <url>http://github.com/thenewmotion/geocode</url>
+    <url>http://github.com/thenewmotion/scala-geocode</url>
     <description>Google geocode api client written on Scala</description>
 
     <repositories>
@@ -26,9 +26,9 @@
     </repositories>
 
     <scm>
-        <url>https://github.com/thenewmotion/geocode</url>
-        <connection>scm:git:ssh://git@github.com/thenewmotion/geocode.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com/thenewmotion/geocode.git</developerConnection>
+        <url>https://github.com/thenewmotion/scala-geocode</url>
+        <connection>scm:git:ssh://git@github.com/thenewmotion/scala-geocode.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/thenewmotion/scala-geocode.git</developerConnection>
     </scm>
 
     <dependencies>
