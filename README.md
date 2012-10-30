@@ -50,6 +50,6 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
     <dependency>
         <groupId>com.thenewmotion.geocode</groupId>
         <artifactId>geocode</artifactId>
-        <version>1.0.0</version>
+        <version>1.0</version>
     </dependency>
 ```
