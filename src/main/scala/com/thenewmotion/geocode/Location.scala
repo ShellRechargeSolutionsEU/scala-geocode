@@ -7,5 +7,5 @@ case class Location(latitude: Double, longitude: Double)
 
 object Location {
   def apply(latitude: String, longitude: String): Location =
-    Location(latitude.toString, longitude.toString)
+    Location(latitude.toDouble, longitude.toDouble)
 }
