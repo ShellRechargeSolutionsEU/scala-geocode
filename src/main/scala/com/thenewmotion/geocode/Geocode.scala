@@ -17,11 +17,18 @@ class Geocode() {
    * This call to google service is limited
    * @see https://developers.google.com/maps/documentation/geocoding/#Limits
    */
-  def ?(location: Location): GeocodeResponse = {
+  def ?(location: Location): Either[Error, List[ResponseResult]] = {
     import location._
-    val latlng = ("latlng", "%s,%s".format(latitude, longitude))
-    val json = Http(req <<? List(latlng, ("sensor", "false")) >- parse)
-    Extraction.extract[GeocodeResponse](json)
+    val latlng   = ("latlng", "%s,%s".format(latitude, longitude))
+    val json     = Http(req <<? List(latlng, ("sensor", "false")) >- parse)
+    val response = Extraction.extract[GeocodeResponse](json)
+    response.status match {
+      case ResponseStatus.ZeroResults    ⇒ Left(ZeroResults)
+      case ResponseStatus.OverQueryLimit ⇒ Left(OverQuotaLimit)
+      case ResponseStatus.RequestDenied  ⇒ Left(Denied)
+      case ResponseStatus.InvalidRequest ⇒ Left(InvalidRequest)
+      case _                             ⇒ Right(response.results)
+    }
   }
 }
 
