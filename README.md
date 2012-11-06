@@ -12,9 +12,9 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 ```scala
       val geocode = new Geocode()
       geocode ? Location(51.498685, -0.12967) match {
-            case GeocodeResponse(results, ResponseStatus.Ok) =>
+            case Right(results)   =>
                 results.foreach(r => println(r.formatted_address))
-            case GeocodeResponse(_, error) => println(error)
+            case Left(error) => println(error)
       }
 
 //      4B Deans Yd, Westminster, London, Greater London SW1P 3NP, UK
