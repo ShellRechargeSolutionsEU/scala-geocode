@@ -6,7 +6,7 @@ import dispatch._
 /**
  * @author Yaroslav Klymko
  */
-class Geocode() {
+class Geocode(http: Http = Http) {
 
   import Geocode._
 
@@ -20,7 +20,7 @@ class Geocode() {
   def ?(location: Location): Either[Error, List[ResponseResult]] = {
     import location._
     val latlng   = ("latlng", "%s,%s".format(latitude, longitude))
-    val json     = Http(req <<? List(latlng, ("sensor", "false")) >- parse)
+    val json     = http(req <<? List(latlng, ("sensor", "false")) >- parse)
     val response = Extraction.extract[GeocodeResponse](json)
     response.status match {
       case ResponseStatus.ZeroResults    ⇒ Left(ZeroResults)
