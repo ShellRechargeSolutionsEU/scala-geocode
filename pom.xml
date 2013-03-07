@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>com.thenewmotion.geocode</groupId>
-    <artifactId>geocode</artifactId>
+    <artifactId>geocode_2.9.2</artifactId>
     <version>1.2-SNAPSHOT</version>
 
     <name>Geocode Scala</name>

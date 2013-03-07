@@ -12,8 +12,7 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 ```scala
       val geocode = new Geocode()
       geocode ? Location(51.498685, -0.12967) match {
-            case Right(results)   =>
-                results.foreach(r => println(r.formatted_address))
+            case Right(results) => results.foreach(r => println(r.formatted_address))
             case Left(error) => println(error)
       }
 
@@ -49,7 +48,7 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 ```xml
     <dependency>
         <groupId>com.thenewmotion.geocode</groupId>
-        <artifactId>geocode</artifactId>
-        <version>1.0</version>
+        <artifactId>geocode_2.9.2</artifactId>
+        <version>1.2-SNAPSHOT</version>
     </dependency>
 ```
