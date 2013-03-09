@@ -4,12 +4,12 @@
 
     <parent>
         <groupId>ua.t3hnar</groupId>
-        <artifactId>scala-parent-pom</artifactId>
-        <version>1.1</version>
+        <artifactId>scala-parent-pom_2.10</artifactId>
+        <version>2.1-SNAPSHOT</version>
     </parent>
 
     <groupId>com.thenewmotion.geocode</groupId>
-    <artifactId>geocode_2.9.2</artifactId>
+    <artifactId>geocode_2.10</artifactId>
     <version>1.2-SNAPSHOT</version>
 
     <name>Geocode Scala</name>
@@ -18,7 +18,7 @@
 
     <repositories>
         <repository>
-            <id>thenewmotion-nexus</id>
+            <id>thenewmotion</id>
             <url>http://nexus.thenewmotion.com/content/groups/public/</url>
         </repository>
     </repositories>
@@ -37,8 +37,8 @@
         </dependency>
         <dependency>
             <groupId>net.liftweb</groupId>
-            <artifactId>lift-json_2.9.1</artifactId>
-            <version>2.4</version>
+            <artifactId>lift-json_${scala.version}</artifactId>
+            <version>2.5-RC2</version>
         </dependency>
     </dependencies>
 </project>
