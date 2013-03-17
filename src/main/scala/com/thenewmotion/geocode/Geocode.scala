@@ -10,7 +10,7 @@ class Geocode(http: Http = Http) {
 
   import Geocode._
 
-  private val req = url(googleapis) / geocodeJson
+  private val req = url(googleapis) / "maps" / "api" / "geocode" / "json"
   implicit val formats = jsonFormats
 
   /**
