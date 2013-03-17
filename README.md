@@ -48,7 +48,7 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 ```xml
     <dependency>
         <groupId>com.thenewmotion.geocode</groupId>
-        <artifactId>geocode_2.9.2</artifactId>
+        <artifactId>geocode_2.10</artifactId>
         <version>1.2-SNAPSHOT</version>
     </dependency>
 ```

@@ -19,8 +19,8 @@ class Geocode(http: Http = Http) {
    */
   def ?(location: Location): Either[Error, List[ResponseResult]] = {
     import location._
-    val latlng   = ("latlng", "%s,%s".format(latitude, longitude))
-    val json     = http(req <<? List(latlng, ("sensor", "false")) >- parse)
+    val latlng = ("latlng", "%s,%s".format(latitude, longitude))
+    val json  = parse(http(req <<? List(latlng, ("sensor" -> "false")) OK (as.String))())
     val response = Extraction.extract[GeocodeResponse](json)
     response.status match {
       case ResponseStatus.ZeroResults    ⇒ Left(ZeroResults)
@@ -40,7 +40,7 @@ object Geocode {
     private val StatusClass = classOf[ResponseStatus.Value]
 
     def deserialize(implicit format: Formats) = {
-      case (TypeInfo(StatusClass, _), JString(s)) => ResponseStatus.apply(s)
+      case (TypeInfo(StatusClass, _), JString(s)) => ResponseStatus(s)
     }
 
     def serialize(implicit format: Formats) = {

@@ -31,9 +31,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>net.databinder</groupId>
-            <artifactId>dispatch-http_${scala.version}</artifactId>
-            <version>0.8.8</version>
+            <groupId>net.databinder.dispatch</groupId>
+            <artifactId>dispatch-core_${scala.version}</artifactId>
+            <version>0.9.5</version>
         </dependency>
         <dependency>
             <groupId>net.liftweb</groupId>
