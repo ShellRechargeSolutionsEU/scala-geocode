@@ -7,10 +7,8 @@ import dispatch._
  * @author Yaroslav Klymko
  */
 class Geocode(http: Http = Http) {
-
   import Geocode._
 
-  private val req = url(googleapis) / "maps" / "api" / "geocode" / "json"
   implicit val formats = jsonFormats
 
   /**
@@ -20,7 +18,8 @@ class Geocode(http: Http = Http) {
   def ?(location: Location): Either[Error, List[ResponseResult]] = {
     import location._
     val latlng = ("latlng", "%s,%s".format(latitude, longitude))
-    val json  = parse(http(req <<? List(latlng, ("sensor" -> "false")) OK (as.String))())
+    val req = url(googleapis) / "maps" / "api" / "geocode" / "json"
+    val json = parse(http(req <<? List(latlng, ("sensor" -> "false")) OK (as.String))())
     val response = Extraction.extract[GeocodeResponse](json)
     response.status match {
       case ResponseStatus.ZeroResults    ⇒ Left(ZeroResults)
