@@ -10,7 +10,7 @@
 
     <groupId>com.thenewmotion.geocode</groupId>
     <artifactId>geocode_2.10</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
 
     <name>Geocode Scala</name>
     <url>http://github.com/thenewmotion/scala-geocode</url>
