@@ -2,6 +2,7 @@ package com.thenewmotion.geocode
 
 import net.liftweb.json._
 import dispatch._
+import scala.concurrent.ExecutionContext
 
 /**
  * @author Yaroslav Klymko
@@ -15,18 +16,21 @@ class Geocode(http: Http = Http) {
    * This call to google service is limited
    * @see https://developers.google.com/maps/documentation/geocoding/#Limits
    */
-  def ?(location: Location): Either[Error, List[ResponseResult]] = {
+  def ?(location: Location)(implicit executionContext: ExecutionContext): Future[Either[Error, List[ResponseResult]]] = {
     import location._
     val latlng = ("latlng", "%s,%s".format(latitude, longitude))
     val req = url(googleapis) / "maps" / "api" / "geocode" / "json"
-    val json = parse(http(req <<? List(latlng, ("sensor" -> "false")) OK (as.String))())
-    val response = Extraction.extract[GeocodeResponse](json)
-    response.status match {
-      case ResponseStatus.ZeroResults    ⇒ Left(ZeroResults)
-      case ResponseStatus.OverQueryLimit ⇒ Left(OverQuotaLimit)
-      case ResponseStatus.RequestDenied  ⇒ Left(Denied)
-      case ResponseStatus.InvalidRequest ⇒ Left(InvalidRequest)
-      case _                             ⇒ Right(response.results)
+    http(req <<? List(latlng, "sensor" -> "false") OK as.String).map {
+      x =>
+        val json = parse(x)
+        val response = Extraction.extract[GeocodeResponse](json)
+        response.status match {
+          case ResponseStatus.ZeroResults ⇒ Left(ZeroResults)
+          case ResponseStatus.OverQueryLimit ⇒ Left(OverQuotaLimit)
+          case ResponseStatus.RequestDenied ⇒ Left(Denied)
+          case ResponseStatus.InvalidRequest ⇒ Left(InvalidRequest)
+          case _ ⇒ Right(response.results)
+        }
     }
   }
 }
