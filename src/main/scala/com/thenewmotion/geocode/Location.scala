@@ -1,8 +1,6 @@
 package com.thenewmotion.geocode
 
-/**
- * @author Yaroslav Klymko
- */
+
 case class Location(latitude: Double, longitude: Double)
 
 object Location {
