@@ -1,6 +1,6 @@
-# Geocode client on Scala [![Build Status](https://secure.travis-ci.org/thenewmotion/scala-geocode.png)](http://travis-ci.org/thenewmotion/scala-geocode)
+# Geocode [![Build Status](https://secure.travis-ci.org/thenewmotion/scala-geocode.png)](http://travis-ci.org/thenewmotion/scala-geocode)
 
-Google [geocode api](https://developers.google.com/maps/documentation/geocoding) client written on Scala
+Google [geocode api](https://developers.google.com/maps/documentation/geocoding) client written in Scala
 
 
 ## Supports
@@ -35,20 +35,17 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 
 ## Setup
 
-1. Add this repository to your pom.xml:
-```xml
-    <repository>
-        <id>thenewmotion</id>
-        <name>The New Motion Repository</name>
-        <url>http://nexus.thenewmotion.com/content/repositories/releases-public</url>
-    </repository>
+1. Add this resolver to your build file:
+```
+resolvers += "TNM" at "http://nexus.thenewmotion.com/content/groups/public"
 ```
 
-2. Add dependency to your pom.xml:
-```xml
-    <dependency>
-        <groupId>com.thenewmotion.geocode</groupId>
-        <artifactId>geocode_2.10</artifactId>
-        <version>1.2</version>
-    </dependency>
-```
+2. Add dependency to your build file:
+```"com.thenewmotion" %% "geocode" % "2.1"```
+
+## Contributors
+
+Georgii Leontiev  
+Maxim Fedorov  
+Reinier Lamers  
+Yaroslav Klymko
