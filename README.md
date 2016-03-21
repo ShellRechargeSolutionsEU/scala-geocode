@@ -11,7 +11,7 @@ Google [geocode api](https://developers.google.com/maps/documentation/geocoding)
 
 ```scala
       val geocode = new Geocode()
-      geocode ? Location(51.498685, -0.12967) match {
+      geocode ? Location(51.498685, -0.12967) foreach {
             case Right(results) => results.foreach(r => println(r.formatted_address))
             case Left(error) => println(error)
       }
@@ -49,3 +49,4 @@ Georgii Leontiev
 Maxim Fedorov  
 Reinier Lamers  
 Yaroslav Klymko
+https://github.com/speedcom
