@@ -10,6 +10,7 @@ case class Address(
 case class Result(
   address_components: List[Address],
   formatted_address: String,
+  place_id: String,
   types: List[String]
 )
 

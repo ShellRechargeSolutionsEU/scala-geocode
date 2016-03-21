@@ -16,7 +16,7 @@ private[geocode] object Formats {
     })
 
   implicit val AddressFmt = jsonFormat3(Address)
-  implicit val ResponseResultFmt = jsonFormat3(Result)
+  implicit val ResponseResultFmt = jsonFormat4(Result)
   implicit val GeocodeResponseFmt = jsonFormat2(Response)
 
   val read = safeReader[Response].read _
