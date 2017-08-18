@@ -41,7 +41,7 @@ resolvers += "TNM" at "http://nexus.thenewmotion.com/content/groups/public"
 ```
 
 2. Add dependency to your build file:
-```"com.thenewmotion" %% "geocode" % "2.1.1"```
+```"com.thenewmotion" %% "scala-geocode" % "2.3"```
 
 ## Contributors
 
