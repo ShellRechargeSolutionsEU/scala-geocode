@@ -1,4 +1,4 @@
-# Geocode [![Build Status](https://secure.travis-ci.org/thenewmotion/scala-geocode.png)](http://travis-ci.org/thenewmotion/scala-geocode)
+# Geocode [![Build Status](https://secure.travis-ci.org/NewMotion/scala-geocode.png)](http://travis-ci.org/NewMotion/scala-geocode)
 
 Google [geocode api](https://developers.google.com/maps/documentation/geocoding) client written in Scala
 
