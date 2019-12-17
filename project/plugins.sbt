@@ -1,3 +1,3 @@
 resolvers += "TNM" at "https://nexus.thenewmotion.com/content/groups/public"
 
-addSbtPlugin("com.newmotion" % "sbt-build-seed" % "3.1.0")
+addSbtPlugin("com.newmotion" % "sbt-build-seed" % "5.0.4")
